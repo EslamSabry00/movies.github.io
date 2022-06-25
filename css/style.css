@@ -65,3 +65,16 @@ body{
 .movie-item:hover .layer{
     top:0;
 }
+@media only screen and (max-width: 992px){
+  #navlogo{
+    height: 30%;
+  }
+  #togglerBtn{
+    font-size: 60px;
+    margin: 8px;
+  }
+  #navicons{
+    font-size: 60px;
+    margin: 10px;
+  }
+}
