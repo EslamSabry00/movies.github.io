@@ -1,0 +1,67 @@
+body{
+    background-color:  rgba(0, 0, 0, .95);
+}
+  .parentOption{
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    z-index: 999999999;
+    transition: 1s;
+  }
+  .optionBox{
+    padding-left: 30px;
+    width: 250px;
+  }
+  .optionBox li a,  .optionBox img , .parentOption i {
+    cursor: pointer;
+  }
+  .optionBox li a{
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+  }
+  .optionBox li a:hover{
+    color: #ff655c;
+  }
+  .optionBox li{
+    padding-top: 25px;
+    transition: 3s;
+  }
+  .optionBox i:hover{
+    color: #ff655c;
+    transition: 1s;
+  }
+  .navlinks{
+    margin-top: 40px;
+    opacity: 0.1;
+  }
+  .form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.7);
+    border-radius: 0;
+    color: #fff;
+  }
+  .placeholderchange::placeholder{
+    text-align: center;
+  }
+  .movie-item
+{
+    position: relative;
+    overflow: hidden;
+}
+  .layer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,.7);
+    text-align: center;
+    padding: 20px;
+    transition: top 0.8s ease-in-out;
+}
+.movie-item:hover .layer{
+    top:0;
+}

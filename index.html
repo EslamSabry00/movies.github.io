@@ -1,0 +1,142 @@
+<html>
+<head>
+    <title>movies</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="movies app">
+</head>
+<body> 
+
+<!--SEARCH-->
+  <div class="container w-75">
+    
+    <div class="row pt-5">
+      <div class="col-xl-6">
+        <input class="form-control mb-5 placeholderchange bg-transparent text-white" placeholder="get movies by word..." id="searchInAPI">
+      </div>
+      <div class="col-xl-6">
+        <input class="form-control mb-5 placeholderchange bg-transparent text-white" placeholder="search..." id="searchInPage">
+      </div>
+    </div>
+   
+    <div class="row my-5" id="searchResult">
+      
+    </div>
+    <h1 class="text-white" id="moviesHeading">NOW PLAYING</h1>
+    <div class="row my-5" id="movies-container">
+      
+    </div>
+
+  </div>
+
+<!--CONTACT US-->
+<section id="contactUs">
+  
+  <div class="container w-75 mb-5">
+    <h2 class="text-white">ContacUs...</h2>
+    <div class="row pt-5">
+      <div class="col-xl-6  mb-5 ">
+        <input class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Your Name" id="nameInput">
+        <div class="alert alert-danger d-none" id="namealert" role="alert">
+          Your Name is not valid
+        </div>
+      </div>
+      <div class="col-xl-6 mb-5">
+        <input class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Email" id="emailInput">
+        <div class="alert alert-danger d-none" id="emailalert" role="alert">
+          entre valid email
+        </div>
+      </div>
+      <div class="col-xl-6 mb-5">
+        <input class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Phone" id="phoneInput">
+        <div class="alert alert-danger d-none" id="phonealert" role="alert">
+          entre valid phone
+        </div>
+      </div>
+      <div class="col-xl-6 mb-5">
+        <input class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Age" id="ageInput">
+        <div class="alert alert-danger d-none" id="agealert" role="alert">
+          entre valid Age (Age between 10-90)
+        </div>
+      </div>
+      <div class="col-xl-6 mb-5">
+        <input type="password" class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Password" id="passwordInput">
+        <div class="alert alert-danger d-none" id="passwordalert" role="alert">
+          entre valid password *Minimum eight characters, at least one letter and one number:*
+        </div>
+      </div>
+      <div class="col-xl-6 mb-5">
+        <input type="password" class="form-control placeholderchange bg-transparent text-white" placeholder="Enter Repassword" id="repasswordInput">
+        <div class="alert alert-danger d-none " id="repasswordalert" role="alert">
+          entre the same password
+        </div>
+      </div>
+      <a class="btn btn-outline-danger w-auto ms-2" id="submitBtn">Submit</a>
+    </div>
+
+  </div>
+</section>
+  <!--NAV-->
+  <div class="parentOption d-flex ">
+    <div class="optionBox bg-black text-white">
+      <ul class="list-unstyled h-50">
+        <li id="navlink1" class="navlinks">
+          <a id="nowPlaying">Now Playing</a>
+        </li>
+        <li id="navlink2" class="navlinks">
+          <a id="popular">Popular</a>
+        </li>
+        <li id="navlink3" class="navlinks">
+          <a id="topRated">Top Rated</a>
+        </li>
+        <li id="navlink4" class="navlinks">
+          <a id="trending">Trending</a>
+        </li>
+        <li id="navlink5" class="navlinks">
+          <a id="upcoming">Upcoming</a>
+        </li>
+        <li id="navlink6" class="navlinks">
+          <a id="contactUslink" href="#contactUs">Contact Us</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-end h-50 pb-4">
+        <div>
+          <span>
+            <i class="fa-brands fa-facebook-f ps-3 fa-sm"></i>
+            <i class="fa-brands fa-twitter ps-3 fa-sm"></i>
+            <i class="fas fa-globe ps-3 fa-sm"></i>
+          </span>
+          <p class="fw-light text-muted pt-3">Copyright Â© 2019 All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="py-3 d-flex justify-content-center h-25 align-items-start">
+        <img class="w-50" src="images/logo.png">
+      </div>
+      <div id="togglerBtnDiv" class="d-flex justify-content-center w-100 h-50 align-items-center">
+        <!-- <i id="togglerBtn" class="fa fa-align-justify fa-xl"></i> -->
+        <!-- <i id="togglerBtn" class="fa-solid fa-bars fa-xl"></i> -->
+        <!-- <i class="fa-solid fa-xmark fa-xl"></i> -->
+        <i id="togglerBtn" class="fa fa-align-justify fa-times fa-xl"></i>
+      </div>
+      <div class="d-flex justify-content-center align-items-end h-25">
+       <div>
+         <i class="fas fa-globe pt-2 d-block"></i>
+         <i class="fas fa-share-alt pt-3 d-block pb-4"></i>
+       </div>
+      </div>
+    </div>>
+  </div>
+
+
+
+
+  <script src="js/bootstrap.bundle.min.js" ></script>  
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
