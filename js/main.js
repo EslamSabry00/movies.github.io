@@ -107,6 +107,8 @@ $('#togglerBtn').click(function(){
         // console.log(allMovies)
         displayMovies()
     }
+
+
     getMovies('movie/now_playing')
     //NOW PLAYING
     $('#nowPlaying').click(async function(){
@@ -137,7 +139,7 @@ $('#togglerBtn').click(function(){
     moviesContainer = document.getElementById('movies-container')
     let imgPath ='https://image.tmdb.org/t/p/w500'
     function displayMovies(){
-        moviesDisplay = "";
+        let moviesDisplay = "";
         for(let i=0 ; i<allMovies.length ; i++)
         {
             moviesDisplay+=`<div class="col-xl-4 col-md-6">
@@ -155,49 +157,54 @@ $('#togglerBtn').click(function(){
         moviesContainer.innerHTML = moviesDisplay;
     }
     //SEARCH IN API
-    async function searchMoviesAPI(searchValue){
-        if(searchValue==''){
-            moviesDisplay = "";
-            $('#searchResult').html(moviesDisplay)
+    async function searchMoviesAPI(searchValueApi){
+        if(searchValueApi==''){
+            moviesDisplayapiSearch = "";
+            $('#searchResult').html(moviesDisplayapiSearch)
         return false;       
         }else{
             let searchResult =[]
-            let moviesResponse = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=8613e4e1776af4e8633cc311d67b3e09&language=en-US&query=${searchValue}&page=1&include_adult=false`)
-            moviesResponse = await moviesResponse.json();
-            searchResult = moviesResponse.results;
-            moviesDisplay = "";
+            let moviesSearchResponse = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=8613e4e1776af4e8633cc311d67b3e09&language=en-US&query=${searchValueApi}&page=1&include_adult=false`)
+            // https://api.themoviedb.org/3/${moviesCategory}?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1l-Nnu6YhrSU0jgQgO5s9SBqC7CLmBs4iIhOLHSH_Xbfc2-fK20UR3-TE
+
+            moviesSearchResponse = await moviesSearchResponse.json();
+            searchResult = moviesSearchResponse.results;
+            // console.log(searchResult)
+            let moviesDisplayapiSearch = "";
             for(let i=0 ; i<searchResult.length ; i++)
             {
-                if(allMovies[i].title.toLowerCase().includes(searchValue.toLowerCase())){
-                moviesDisplay+=`<div class="col-xl-4 col-md-6">
+                if(searchResult[i].title.toLowerCase().includes(searchValueApi.toLowerCase())){
+                    moviesDisplayapiSearch+=`<div class="col-xl-4 col-md-6">
                                 <div class="movie-item my-3">
-                                    <img class="img-fluid" src="${imgPath+allMovies[i].poster_path}" alt="">
+                                    <img class="img-fluid" src="${imgPath+searchResult[i].poster_path}" alt="">
                                     <div class="layer">
-                                        <h2>${allMovies[i].title}</h2>
-                                        <p>${allMovies[i].overview}</p>
-                                        <p>${allMovies[i].vote_average}</p>
-                                        <p>${allMovies[i].release_date}</p>
+                                        <h2>${searchResult[i].title}</h2>
+                                        <p>${searchResult[i].overview}</p>
+                                        <p>${searchResult[i].vote_average}</p>
+                                        <p>${searchResult[i].release_date}</p>
                                     </div>
                                 </div>
                             </div>`;
                         }
             }
-            $('#searchResult').html(moviesDisplay)
+            // console.log(moviesDisplayapiSearch)
+            console.log('ana wasalt')
+            $('#searchResult').html(moviesDisplayapiSearch)
         }
         // The Shawshank Redemption
     }
     //SEARCH IN PAGE
-    function searchMovie(searchValue){
-        if(searchValue==''){
-            moviesDisplay = "";
-            $('#searchResult').html(moviesDisplay)
+    function searchMovie(searchValueInPage){
+        if(searchValueInPage==''){
+            moviesDisplayInPageSearch = "";
+            $('#searchResult').html(moviesDisplayInPageSearch)
         return false;       
         }else{
-            moviesDisplay = "";
+            let moviesDisplayInPageSearch = "";
             for(let i=0 ; i<allMovies.length ; i++)
             {
-                if(allMovies[i].title.toLowerCase().includes(searchValue.toLowerCase())){
-                moviesDisplay+=`<div class="col-xl-4 col-md-6">
+                if(allMovies[i].title.toLowerCase().includes(searchValueInPage.toLowerCase())){
+                    moviesDisplayInPageSearch+=`<div class="col-xl-4 col-md-6">
                                 <div class="movie-item my-3">
                                     <img class="img-fluid" src="${imgPath+allMovies[i].poster_path}" alt="">
                                     <div class="layer">
@@ -210,7 +217,8 @@ $('#togglerBtn').click(function(){
                             </div>`;
                         }
             }
-            $('#searchResult').html(moviesDisplay)
+            $('#searchResult').html(moviesDisplayInPageSearch)
+            console.log(moviesDisplayInPageSearch)
         }
     }
     searchValueInPage= document.getElementById('searchInPage')
@@ -220,4 +228,8 @@ $('#togglerBtn').click(function(){
     })
      $('#searchInAPI').keyup(function(){
         searchMoviesAPI(searchValueInAPI.value)
+    })
+    $('#contactUslink').click(function(){
+        let myoffset =$('#contactUs').offset().top;
+        $('body, html').animate({scrollTop:myoffset},2000,'linear');
     })
