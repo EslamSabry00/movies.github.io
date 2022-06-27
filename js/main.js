@@ -6,16 +6,24 @@ function navin(){
     $('#togglerBtn').removeClass('fa-times')
 }
 $('#togglerBtn').click(function(){
+    let listItems =$('.navlinks')
     let boxWidth =$('.optionBox').outerWidth();
     let leftValue =$('.parentOption').css('left');
     if(leftValue == '0px'){
         $('.parentOption').css('left',`-${boxWidth}px`)
         $('#togglerBtn').removeClass('fa-times')
-        $('.parentOption li').addClass('navlinks');
+        for(let i=0; i<=listItems.length ; i++){
+            $(listItems[i]).animate({'top':'500px','opacity':'0'},1000)
+        }
+        $('#iconsWcopyrights').animate({"opacity": '0'},700)
+        
     }else{
         $('.parentOption').css('left',`0px`)
         $('#togglerBtn').addClass('fa-times')
-        $('.parentOption li').removeClass('navlinks');
+        for(let i=0; i<=listItems.length ; i++){
+            $(listItems[i]).animate({'top':'0px','opacity':'1'},i*100+1500)
+        }
+        $('#iconsWcopyrights').delay(1100).animate({"opacity": '1'},700)
     }
 })
 //CONTACT US
@@ -233,3 +241,4 @@ $('#togglerBtn').click(function(){
         let myoffset =$('#contactUs').offset().top;
         $('body, html').animate({scrollTop:myoffset},2000,'linear');
     })
+
