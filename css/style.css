@@ -1,3 +1,6 @@
+/* html{
+  scroll-behavior: smooth;
+} */
 body{
     background-color:  rgba(0, 0, 0, .95);
 }
@@ -25,16 +28,17 @@ body{
     color: #ff655c;
   }
   .optionBox li{
-    padding-top: 25px;
-    transition: 3s;
+    padding-top: 25px
   }
   .optionBox i:hover{
     color: #ff655c;
     transition: 1s;
   }
   .navlinks{
-    margin-top: 40px;
-    opacity: 0.1;
+    position: relative;
+    top: 500;
+    opacity: 0;
+    overflow: hidden;
   }
   .form-control {
     background-color: transparent;
@@ -77,4 +81,7 @@ body{
     font-size: 60px;
     margin: 10px;
   }
+}
+#iconsWcopyrights{
+  opacity: 0;
 }
